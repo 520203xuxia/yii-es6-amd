@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/app.js"],"names":[],"mappings":";;;;;;;;;;;;;;;sBAIe;AAEX,YAFW,kBAEH;AACJ,oBAAQ,GAAR;AACH;AAJU,K","file":"app.js","sourcesContent":["/**\n * Created by Huan on 7/17/16.\n */\nimport d3 from 'd3'\nexport default {\n\n    init () {\n        console.log(d3)\n    }\n\n}\n"]}
