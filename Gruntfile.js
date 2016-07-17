@@ -58,8 +58,9 @@ module.exports = function(grunt) {
         eslint: {
             options: {
                 quiet: false,
-                config: 'eslint.json',
-                outputFile: 'eslint.log'
+                //  configFile: 'eslint.json',
+                outputFile: 'eslint.log',
+                useEslintrc: true
             },
             all: {
                 files: {
@@ -76,10 +77,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-eslint');
+    grunt.loadNpmTasks('grunt-eslint');
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('eslint', ['eslint']);
+    grunt.registerTask('check', ['eslint']);
     grunt.registerTask('default', ['watch']);
     //grunt.registerTask('default', ['babel', 'requirejs']);
 };

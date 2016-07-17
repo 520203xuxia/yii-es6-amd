@@ -3,9 +3,9 @@
  */
 export default {
 
-    name: 'U',
+  name: 'U',
 
-    get username() {
-        return this.name + ", Welcome!"
-    }
+  get username () {
+    return this.name + ', Welcome!'
+  }
 }
