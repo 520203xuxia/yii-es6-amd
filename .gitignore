@@ -4,5 +4,6 @@ dist/
 *.swp/
 .idea/
 *.un~/
+*.log
 *.map
 amd/
