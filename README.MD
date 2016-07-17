@@ -61,7 +61,7 @@ babel: {
     现在运行grunt命令即可产生前面的AMD代码。
 
 ## ES6与ESlint
-    按照grunt-eslint的默认配置，则发生“Parsing error: 'import' and 'export' may appear only with 'sourceType: module'”错误，直接崩溃，后查阅多方文档，发现是解析器引发的错误，改进如下：
+<p>按照grunt-eslint的默认配置，则发生“Parsing error: 'import' and 'export' may appear only with 'sourceType: module'”错误，直接崩溃，后查阅多方文档，发现是解析器引发的错误，改进如下：</p>
 ``` javascript
 babel: {
     options: {
