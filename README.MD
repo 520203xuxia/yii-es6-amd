@@ -39,15 +39,15 @@ define(['exports', './commons/user', 'd3'], function (exports, _user, d3) {
 babel: {
     options: {
         sourceMap: false,
-        presets: ['babel-preset-es2015'],
-        babelrc: true   //必须启用babelrc文件
+        presets: ['babel-preset-es2015'],   // 还可以添加更多特性
+        babelrc: true   // 必须启用babelrc文件
     },
     dist: {
         expand: true,
-        ext: '.js',
-        cwd: 'src/es6/',
-        src: ['**/*.js'],
-        dest: 'src/amd'
+        cwd: 'src/es6/', // ES6文件的存放位置
+        src: ['**/*.js'], // 匹配的文件
+        dest: 'src/amd' // 输出目录
+        ext: '.js', // 输出的后缀名
     }
 }
 ```
