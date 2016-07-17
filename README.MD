@@ -32,7 +32,7 @@ define(['exports', './commons/user', 'd3'], function (exports, _user, d3) {
     4. 能支持动态加载
 
 ## ES6与Babel
-    ES6有多种翻译器，开始我想从grunt插件里面找ES6翻译成AMD语法的插件，结果大失所望，最后仔细参照了babel项目，在其插件里发现了babel-plugin-transform-es2015-modules-amd，可满足需求。
+<p>ES6有多种翻译器，开始我想从grunt插件里面找ES6翻译成AMD语法的插件，结果大失所望，最后仔细参照了babel项目，在其插件里发现了babel-plugin-transform-es2015-modules-amd，可满足需求。</p>
     在此吐槽一下grunt的插件文件，实例不够，切大多简略且说明不清楚，要把属性配置完全几乎一半都要靠猜。
     要用grunt-babel将ES6转换为满足Requirejs的AMD语法，必须启用babelrc文件，配置如下：
 ``` javascript
