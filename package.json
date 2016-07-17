@@ -1,0 +1,22 @@
+{
+  "name": "yii-es6-amd",
+  "version": "1.0.0",
+  "description": "use compiled es6 in requirejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "es6",
+    "requirejs"
+  ],
+  "author": "yiifaa",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-amd": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-uglify": "^1.0.1"
+  }
+}
