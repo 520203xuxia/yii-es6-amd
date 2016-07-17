@@ -81,7 +81,7 @@ babel: {
     在.babelrc文件中添加如下配置
 ``` javascript
 {
-    extend": ["eslint:recommended"],
+    "extend": ["eslint:recommended"],
     "parser": "babel-eslint",   // 必须指定解析器，否则错误难消
     "env": {
         "amd": true,
