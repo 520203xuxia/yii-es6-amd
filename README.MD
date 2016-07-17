@@ -1,3 +1,6 @@
+yii-es6-amd
+===========
+
 ## More Topics
 [babel-plugin-transform-es2015-modules-amd](https://www.npmjs.com/package/babel-plugin-transform-es2015-modules-amd)
 [Eslint Demo](http://eslint.org/demo/)
