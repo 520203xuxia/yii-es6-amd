@@ -42,6 +42,32 @@ module.exports = function(grunt) {
                     mainConfigFile: 'src/rjConfig.js'
                 }
             }
+        },
+
+        watch: {
+            scripts: {
+                files: ['src/es6/**/*.js', 'rjConfig.js'],
+                tasks: ['eslint', 'babel', 'requirejs'],
+                options: {
+                    spawn: false,
+                    debounceDelay: 100
+                }
+            }
+        },
+
+        eslint: {
+            options: {
+                quiet: false,
+                config: 'eslint.json',
+                outputFile: 'eslint.log'
+            },
+            all: {
+                files: {
+                    src: ['src/es6/**/*.js']
+                }
+            },
+            //  target: ['Gruntfile.js']
+            //  target: ['src/es6/app.js']
         }
     });
 
@@ -49,7 +75,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-eslint');
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('default', ['babel', 'requirejs']);
+    grunt.registerTask('eslint', ['eslint']);
+    grunt.registerTask('default', ['watch']);
+    //grunt.registerTask('default', ['babel', 'requirejs']);
 };

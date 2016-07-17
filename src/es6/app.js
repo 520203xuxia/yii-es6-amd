@@ -9,6 +9,8 @@ export default {
         user.name = 'Gan Huan'
         console.log(user.username)
         d3.select('body').append('h1').text(user.name)
-    }
+    },
 
+    render () {
+    }
 }
