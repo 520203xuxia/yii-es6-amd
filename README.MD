@@ -63,19 +63,20 @@ babel: {
 ## ES6与ESlint
 <p>按照grunt-eslint的默认配置，则发生“Parsing error: 'import' and 'export' may appear only with 'sourceType: module'”错误，直接崩溃，后查阅多方文档，发现是解析器引发的错误，改进如下：</p>
 ``` javascript
-babel: {
+ eslint: {
     options: {
-        sourceMap: false,
-        presets: ['babel-preset-es2015'],
-        babelrc: true   //  必须启用，能更方便地指定规则与编译器，详见ESlint官方文档
+        quiet: false,
+        //  configFile: 'eslint.json',
+        //  可以将Eslint的规则配置内容放置在此文件中，但测试发现，eslintrc完全可以配置所有内容
+        outputFile: 'eslint.log',   //  eslint检查结果的输出日志
+        useEslintrc: true   //  启用eslintrc文件，非常重要
     },
-    dist: {
-        expand: true,
-        ext: '.js',
-        cwd: 'src/es6/',
-        src: ['**/*.js'],
-        dest: 'src/amd'
-    }
+    all: {
+        files: {
+            src: ['src/es6/**/*.js']
+        }
+    },
+    //  target: ['Gruntfile.js']
 }
 ```
     在.babelrc文件中添加如下配置
