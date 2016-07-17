@@ -19,16 +19,28 @@ module.exports = function(grunt) {
 
         babel: {
             options: {
-                sourceMap: true,
+                sourceMap: false,
                 presets: ['babel-preset-es2015'],
                 babelrc: true
             },
             dist: {
                 expand: true,
                 ext: '.js',
-                cwd: 'src/',
+                cwd: 'src/es6/',
                 src: ['**/*.js'],
-                dest: 'dist/'
+                dest: 'src/amd'
+            }
+        },
+
+        requirejs: {
+            compile: {
+                options: {
+                    appDir: './src/amd',
+                    baseUrl: '/dist/js/',
+                    dir: './dist/js',
+                    optimize: 'none',
+                    mainConfigFile: 'src/rjConfig.js'
+                }
             }
         }
     });
@@ -36,7 +48,8 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
-    grunt.registerTask('default', ['babel']);
+    grunt.registerTask('default', ['babel', 'requirejs']);
 };
