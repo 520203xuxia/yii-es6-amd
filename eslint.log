@@ -1,9 +1,0 @@
-
-[4mE:\WorkSpace\WebStorm\yii-es6-amd\src\es6\app.js[24m
-  [2m4:1[22m  [31merror[39m  Parsing error: 'import' and 'export' may appear only with 'sourceType: module'
-
-[4mE:\WorkSpace\WebStorm\yii-es6-amd\src\es6\commons\user.js[24m
-  [2m4:1[22m  [31merror[39m  Parsing error: 'import' and 'export' may appear only with 'sourceType: module'
-
-[31m[1m✖ 2 problems (2 errors, 0 warnings)
-[22m[39m
