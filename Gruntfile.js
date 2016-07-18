@@ -32,6 +32,21 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: {
+            build: ['dist/js/', 'src/amd/']
+        },
+
+        copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/es6/',
+                    src: ['**/*.html'],
+                    dest: 'dist/js/'
+                }]
+            }
+        },
+
         requirejs: {
             compile: {
                 options: {
@@ -46,8 +61,8 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['src/es6/**/*.js', 'rjConfig.js'],
-                tasks: ['eslint', 'babel', 'requirejs'],
+                files: ['src/es6/**/*.js','src/es6/**/*.html', 'rjConfig.js'],
+                tasks: ['eslint', 'babel', 'requirejs', 'copy'],
                 options: {
                     spawn: false,
                     debounceDelay: 100
@@ -78,10 +93,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
     grunt.registerTask('check', ['eslint']);
-    grunt.registerTask('build', ['eslint', 'babel', 'requirejs']);
+    grunt.registerTask('build', ['clean', 'eslint', 'babel', 'requirejs', 'copy']);
     grunt.registerTask('default', ['watch']);
     //grunt.registerTask('default', ['babel', 'requirejs']);
 };

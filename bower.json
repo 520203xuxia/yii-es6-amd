@@ -21,6 +21,9 @@
   ],
   "dependencies": {
     "requirejs": "^2.2.0",
-    "d3": "^4.1.1"
+    "d3": "^4.1.1",
+    "vue": "^1.0.26",
+    "text": "requirejs/text#^2.0.15",
+    "bootstrap": "^3.3.6"
   }
 }
