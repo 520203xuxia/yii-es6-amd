@@ -6,6 +6,6 @@ export default {
   name: 'U',
 
   get username () {
-    return this.name + ', Welcome！'
+    return this.name + ', Welcome！zhao'
   }
 }

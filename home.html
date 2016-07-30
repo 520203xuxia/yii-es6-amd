@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/d3/d3.js"></script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="list-group" id="group1">
+                    <a id="ZHAN" class="list-group-item" href="javascript:;">张雪梅</a>
+                </div>
+            </div>
+            <div class="col-xs-6">2</div>
+        </div>
+    </div>
+    <script>
+        //attr, property datum
+        var a0 = [{"id" : "GAN", "name": "甘焕"}, {"id" : "ZH", "name": "张棣"}, {"id" : "XUE", "name": "张雪梅"}, {"id" : "TEST"}];
+        var a1 = [{"id" : "GAN", "name": "甘焕"}, {"id" : "XU", "name": "徐建辉"}, {"id" : "XUE", "name": "张雪梅"}, {"id" : "TEST"}]
+        var a2 = [{"id" : "GAN", "name": "甘焕"}, {"id" : "BAI", "name": "白权威"}, {"id" : "ZH", "name": "张棣"}, {"id" : "TEST"}]
+
+
+        var group1 = document.getElementById('group1')
+        function exec(el, obj) {
+            el.addEventListener("click", function() {alert(obj.id)} )
+        }
+        function iden(d) {
+            return !!d ? d.id : this.id;
+        }
+        var update = d3.select("#group1").selectAll(".list-group-item").data(a0, iden)
+        //console.inspect(update);
+        var enter =  update.enter().filter(function(d) {
+            console.debug(d);
+            return !!d.name;
+        })
+        var news = enter.append("a").text(function(d) {
+            return d.name;
+        }).attr("href", "javascript:;").classed("list-group-item", true);
+        news.data(a1, iden).classed("active", true)
+        news.data(a1, iden).exit().style("color", "red");
+        // 循环添加节点
+        /**
+        for(var i = 0; i < a0.length - 1; i++) {
+            var el = document.createElement('a')
+            var index = a0[i].id
+            el.href = 'javascript:;'
+            el.textContent = a0[i].name
+            el.classList.add("list-group-item")
+            //exec(el, a0[i])
+            //el.datas = a0[i]
+            d3.select(el).attr("datas", a0[i])
+            //datum(aa)=property("__data__", aa)
+            d3.select(el).property("__data__", a0[i]).on("click", function() {
+                //console.debug(d3.select(this).attr("datas").id)
+                alert(d3.select(this).datum()===d3.select(this).property("__data__"));
+                console.debug(d3.select(this).datum().id)
+            })
+            //el.addEventListener("click", function() {alert(this.datas.id)} )
+            group1.appendChild(el)
+        }
+        **/
+    </script>
+</body>
+</html>
