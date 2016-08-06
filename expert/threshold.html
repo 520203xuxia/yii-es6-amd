@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+        <script src="../bower_components/d3/d3.js"></script>
+        <title>Threshold & Quantize</title>
+        <style>
+            div.risk-level{
+                height : 50px;
+                width : 50px;
+                margin : 20px;
+                border-radius: 50%;
+                float : left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="panel panel-default" style="width : 450px;">
+                <div class="panel-heading">画布</div>
+                <div class="panel-body" id="canvas" style="height:250px;">
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+           var thresh = d3.scaleThreshold()
+                           .domain([1, 2.33, 3.66, 5])
+                           .range(['none', 'green', 'yellow', 'red', 'none']);
+           var quantize = d3.scaleQuantize()
+                   .domain([1, 5])
+                   //   将作用域划分为[1, 2.33], (2.33, 3.66], (3.66, 5]
+                   .range(['green', 'yellow', 'red']);
+           for(var i = 1; i < 5.0; i = i + 0.1) {
+               if(thresh(i) !== quantize(i)) {
+                   console.info(i, thresh(i), quantize(i));
+               }
+           }
+        </script>
+    </body>
+</html>

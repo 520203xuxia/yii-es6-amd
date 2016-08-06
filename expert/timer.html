@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../bower_components/d3/d3.js"></script>
+    <title>Timer</title>
+    <style>
+        .animate-style {
+            transition : all 2s ease-in 1s;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="animate-style">0</h1>
+    <button class="btn btn-primary" id="btnStart">启动</button>
+    <button class="btn btn-default" id="btnStop">停止</button>
+    <script>
+        var timer;
+        var counter = 1;
+        d3.select("#btnStart").on("click", function() {
+
+
+
+            /****/
+            timer = d3.timeout(function(elsapsed) {
+                //d3.select("h1").text(elsapsed);
+                counter ++;
+               //timer.stop()
+            }, 0);
+            //d3.timerFlush()
+            var task = function() {
+                counter ++;
+            };
+            //task();
+            //setTimeout(task, 0)
+            //  d3.timerFlush()
+            alert(counter > 1);
+        })
+    </script>
+</body>
+</html>
