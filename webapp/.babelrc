@@ -1,0 +1,5 @@
+{
+	//  需要安装插件，npm install transform-es2015-modules-amd --save-dev
+	"plugins": ["transform-es2015-modules-amd"],  // ES6转AMD的关键
+	"presets": ["babel-preset-es2015"]
+}

@@ -1,0 +1,19 @@
+{
+    "extend": ["eslint:recommended"],
+    "parser": "babel-eslint",
+
+    "env": {
+        "amd": true,
+        "es6": true,
+        "browser": true,
+        "node": false
+    },
+
+    "globals": {
+        "document": false,
+        "navigator": false,
+        "window": false
+    },
+
+
+}
