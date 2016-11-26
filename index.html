@@ -2,21 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Index</title>
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <link rel="stylesheet" href="asset/theme.css"/>
+        <title>yii-es6-amd</title>
+        <link rel="stylesheet" href="/dest/node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/dest/node_modules/font-awesome/css/font-awesome.css">
+        <script type="text/javascript" src="/dest/node_modules/requirejs/require.js"></script>
+        <script type="text/javascript" src="/dest/script/rjConfig.js"></script>
     </head>
     <body>
-        <main class="container">
-            <selection></selection>
-        </main>
+        <main id="appRoot"></main>        
     </body>
-    <script src="asset/syntaxhighlighter.js"></script>
-    <script src="bower_components/requirejs/require.js"></script>
-    <script src="src/rjConfig.js"></script>
-    <script>
-        require(['app'], function(app) {
-            app.default.init()
-        })
-    </script>
 </html>

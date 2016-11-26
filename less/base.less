@@ -1,9 +1,83 @@
-html {
+@navbar-height: 51px;
+@menu-width : 235px;
+@aside-width : 320px;
+@basic-margin : 15px;
+
+.full-height(@overflow:true) {
     height : 100%;
     min-height: 100%;
+    & when(@overflow = true) {
+        overflow-x: hidden;
+    }
 }
 
-body:extend(html),
-main {
-    overflow-x: hidden;
+html,
+body,
+.sti-app,
+.sti-body{
+    .full-height();
 }
+.sti-navbar {
+    .sti-band {
+        width : @menu-width;
+        padding : 0px @basic-margin;
+    }
+}
+
+.sti-body {
+    padding-top : @navbar-height;
+    padding-left : @menu-width;
+    
+    .sti-content,
+    .sti-menu {
+        float : left;
+        width : 100%;
+        .full-height(false);
+    }
+    
+    .sti-menu {
+        width : @menu-width;
+        margin-left : -@menu-width;
+        background-color: #f5f5f5;
+        margin-bottom : 0px;
+        border-radius: 0px;
+        border-width: 0px;
+        
+    }
+}
+
+.sti-menu-group {
+    margin-bottom: 0px;
+    
+    .sti-menu-item {
+        border-radius: 0px;
+        border-bottom-width: 0px;
+        border-top-width: 0px;
+    }
+    
+    .sti-menu-group {
+        .sti-menu-item > a{
+            padding-left : 30px;
+        }
+        .sti-menu-group {
+            .sti-menu-item > a{
+                padding-left : 45px;
+            }
+        }
+    }
+    
+    
+}
+
+
+.sti-aside {
+    .full-height();
+    position: fixed;
+    z-index : 1099;
+    top : 0px;
+    right : 0px;
+    background-color: aqua;
+    width : @aside-width;
+}
+
+

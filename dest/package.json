@@ -1,0 +1,19 @@
+{
+  "name": "yii-es6-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yiifaa",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.7.0",
+    "require-css": "^0.1.8",
+    "requirejs": "^2.3.2",
+    "text": "github:requirejs/text",
+    "vue": "^2.1.3"
+  }
+}

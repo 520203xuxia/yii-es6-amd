@@ -120,7 +120,7 @@ module.exports = function(grunt) {
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
     grunt.registerTask('check', ['eslint']);
-    grunt.registerTask('build', ['babel', 'less', 'copy']);
+    grunt.registerTask('build', ['clean', 'babel', 'less', 'copy']);
     grunt.registerTask('default', ['watch']);
     //grunt.registerTask('default', ['babel', 'requirejs']);
 };
