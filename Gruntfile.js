@@ -2,67 +2,88 @@
  * Created by Huan on 7/17/16.
  */
 module.exports = function(grunt) {
+	
+	var dest = 'dest/',
+		pat = '**/*'
+		cwd = 'es6/';
+	
+	var ext = '.es6',
+		esPat = pat + ext,
+		esDest = dest + '/script';
+    
+    var lessDest = dest + '/css',
+        lessCwd = 'less/',
+        lessExt = '.less',
+        lessPat = lessCwd + pat + lessExt;
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
-            build: {
-                src: 'src/<%= pkg.main %>.js',
-                dest: 'build/<%= pkg.main %>.min.js'
-            }
-        },
-
         babel: {
             options: {
                 sourceMap: false,
-                presets: ['babel-preset-es2015'],
+                presets: ['babel-preset-latest'],
                 babelrc: true
             },
             dist: {
                 expand: true,
-                ext: '.js',
-                cwd: 'src/es6/',
-                src: ['**/*.js'],
-                dest: 'src/amd'
+                ext : '.js',
+                cwd,
+                src: [ esPat ],
+                dest: esDest
             }
         },
 
         clean: {
-            build: ['dist/js/', 'src/amd/']
+            build: [esDest, lessDest]
         },
 
         copy: {
-            main: {
+            static : {
                 files: [{
                     expand: true,
-                    cwd: 'src/es6/',
-                    src: ['**/*.html'],
-                    dest: 'dist/js/'
+                    cwd,
+                    src: ['**/*.html', '**/*.js', '**/*.css'],
+                    dest: esDest
+                }]
+            }
+        },
+        
+        less : {
+            main : {
+                files : [{
+                    expand : true,
+                    ext : '.css',
+                    cwd : lessCwd,
+                    src : [pat + lessExt],
+                    dest : lessDest,
                 }]
             }
         },
 
-        requirejs: {
-            compile: {
-                options: {
-                    appDir: './src/amd',
-                    baseUrl: '/dist/js/',
-                    dir: './dist/js',
-                    optimize: 'none',
-                    mainConfigFile: 'src/rjConfig.js'
-                }
-            }
-        },
-
         watch: {
-            scripts: {
-                files: ['src/es6/**/*.js','src/es6/**/*.html', 'rjConfig.js'],
-                tasks: ['eslint', 'babel', 'requirejs', 'copy'],
+            es6: {
+                files: ['es6/**/*.es6'],
+                tasks: ['babel'],
+                options: {
+                    spawn: false,
+                    debounceDelay: 100
+                }
+            },
+            
+            less : {
+                files : [lessPat],
+                tasks : ['less'],
+                options: {
+                    spawn: false,
+                    debounceDelay: 100
+                }
+            },
+            
+            static : {
+                files: ['es6/**/*.html', 'es6/**/*.js', 'es6/**/*.css'],
+                tasks: ['copy'],
                 options: {
                     spawn: false,
                     debounceDelay: 100
@@ -90,6 +111,7 @@ module.exports = function(grunt) {
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-eslint');
@@ -98,7 +120,7 @@ module.exports = function(grunt) {
     // Default task(s).
     //grunt.registerTask('default', ['uglify']);
     grunt.registerTask('check', ['eslint']);
-    grunt.registerTask('build', ['clean', 'eslint', 'babel', 'requirejs', 'copy']);
+    grunt.registerTask('build', ['babel', 'less', 'copy']);
     grunt.registerTask('default', ['watch']);
     //grunt.registerTask('default', ['babel', 'requirejs']);
 };

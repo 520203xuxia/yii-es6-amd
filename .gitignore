@@ -8,3 +8,5 @@ dist/
 src/amd/
 *.map
 docs/
+dest/script/
+dest/css/
