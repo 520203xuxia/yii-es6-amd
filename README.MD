@@ -140,3 +140,4 @@ exports.default = {
     5. [Eslint Rules](http://eslint.org/docs/rules/)
     6. [Eslint Config](http://eslint.org/docs/user-guide/configuring)
     7. [Requirejs Optimization](http://requirejs.org/docs/optimization.html)
+    8. [Es JSDOC]
