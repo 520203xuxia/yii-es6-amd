@@ -10,10 +10,6 @@ requirejs.config({
 		name: 'jquery',
 		location: '../node_modules/jquery/dist',
 		main: 'jquery'
-	}, { 
-		name: 'require',
-		location: '../node_modules/requirejs',
-		main: 'require'
 	} ,{
 		name: 'text',
 		location: '../node_modules/text',

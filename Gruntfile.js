@@ -1,6 +1,8 @@
 /**
  * Created by Huan on 7/17/16.
  */
+var path = require('path')
+console.info(path.resolve('.'))
 module.exports = function(grunt) {
 	
 	var dest = 'dest/',

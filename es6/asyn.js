@@ -1,6 +1,6 @@
-define(['jquery'], function() {
+define(['require'], function(require) {
     return function(el) {
-        var $ = requirejs('jquery');
+        var $ = require('jquery');
         $(el).html('Hello, World!');
     }
 })
