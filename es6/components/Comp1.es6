@@ -1,5 +1,6 @@
 import template from 'text!./Comp1.html'
 import Vue from 'vue'
+import 'css!default'
 
 let comp1 = Vue.extend({
     
@@ -10,6 +11,10 @@ let comp1 = Vue.extend({
             message : 'C1',
             age     : 20
         }
+    },
+    
+    mounted () {
+        console.debug(this.$el.getBoundingClientRect())
     }
     
 })

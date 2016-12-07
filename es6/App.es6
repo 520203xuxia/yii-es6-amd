@@ -1,15 +1,9 @@
 import Vue from 'vue'
 import template from 'text!./app.html'
 import 'css!/dest/css/base.css'
-//import asyn from './asyn'
+import 'jquery'
 import { comp1 } from './components/Comp1'
 import comp2 from './components/Comp2'
-import compUtil from './components/CompUtil'
-import 'jquery'
-
-let tmpl = `<span>
-            </span>
-           `
 
 let App = Vue.extend({
     
@@ -23,8 +17,8 @@ let App = Vue.extend({
     },
     
     components : {
-      comp1,
-      comp2
+        comp1,
+        comp2
     },
     
     computed : {

@@ -10,6 +10,10 @@ export default {
             sex      : '男',
             remarks  : 'The Enterprise'
         }
+    },
+    
+    mounted () {
+        console.debug(this.$el.getBoundingClientRect())
     }
     
 }
